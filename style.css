@@ -18,3 +18,16 @@ body {
 .tetromino {
     background-color: blue;
 }
+
+.side-grid {
+    height: 80px;
+    width: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: coral;
+}
+
+.side-grid div {
+    height: 20px;
+    width: 20px;
+}
