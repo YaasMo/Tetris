@@ -2,11 +2,12 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     const grid = document.querySelector('.grid')
     let squares = Array.from(document.querySelectorAll('.grid div'))
 
-    const DisplayScore = document.querySelector('#score')
-    const StartBtn = document.querySelector('#start-button')
+    const displayScore = document.querySelector('#score')
+    const startBtn = document.querySelector('#start-button')
     
     const GRID_WIDTH = 10
     let nextRandom = 0
+    let timerId
 
     //defining the tetriminoes
     const lTetromino = [ 
@@ -177,6 +178,17 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
         })
     }
 
-
+    //add functionality to the button
+    startBtn.addEventListener('click', () => {
+        if(timerId) { // timerId not null
+            clearInterval(timerId)
+            timerId = null
+        } else {
+            draw()
+            timerId = setInterval(moveDown, 1000)
+            nextRandom = Math.floor(Math.random() * allTetrominoes.length)
+            displayUpcoming()
+        }
+    })
 
 })
