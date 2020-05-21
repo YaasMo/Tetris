@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     const StartBtn = document.querySelector('#start-button')
     
     const GRID_WIDTH = 10
+    let nextRandom = 0
 
     //defining the tetriminoes
     const lTetromino = [ 
@@ -103,10 +104,12 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
             current.forEach(index => squares[currentPos + index].classList.add('taken'))
             
             //let a new tetromino fall from the top of the grid
-            random = Math.floor(Math.random() * allTetrominoes.length)
+            random = nextRandom
+            nextRandom = Math.floor(Math.random() * allTetrominoes.length)
             current = allTetrominoes[random][currentRotation]
             currentPos = 4
             draw()
+            displayUpcoming()
         }
     }
 
@@ -149,9 +152,30 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
         draw()
     }
 
+    //preview upcoming tetromino in the side-gride
+    const displaySquares = document.querySelectorAll('.side-grid div')
+    const displayWidth = 4
+    let displayIndex = 0
 
+    //the Tetreminoes without rotations
+    const upcomingTetreminoes = [
+        [1, displayWidth + 1, displayWidth * 2 + 1, 2], // lTetromino
+        [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], // zTetromino
+        [1, displayWidth, displayWidth + 1, displayWidth + 2], // tTetromino
+        [0, 1, displayWidth, displayWidth + 1], // oTetromino
+        [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1] // iTetromino
+    ]
 
-
+    //display the shape in the side-grid display
+    function displayUpcoming() {
+        //remove any possible existing tetromino from side grid
+        displaySquares.forEach(square => {
+            square.classList.remove('tetromino')
+        })
+        upcomingTetreminoes[nextRandom].forEach(index => {
+            displaySquares[displayIndex + index].classList.add('tetromino')
+        })
+    }
 
 
 
