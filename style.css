@@ -29,6 +29,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     background-color: coral;
+    margin-left: 50px;
+
 }
 
 .side-grid div {
