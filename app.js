@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     
     const GRID_WIDTH = 10
     let nextRandom = 0
+    let score = 0
     let timerId
 
     //defining the tetriminoes
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     }
 
     //make the tetromino move down the grid every second
-    timerId = setInterval(moveDown, 1000)
+    // timerId = setInterval(moveDown, 1000)
 
     //assign functions to keyCodes
     function control(e) {
@@ -111,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
             currentPos = 4
             draw()
             displayUpcoming()
+            addScore()
         }
     }
 
@@ -190,5 +192,22 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
             displayUpcoming()
         }
     })
+
+    //add a score count
+    function addScore() {
+        for (let i = 0; i < 199; i += GRID_WIDTH) {
+            const row = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9]
+
+            if(row.every(index => squares[index].classList.contains('taken'))) {
+                score += 10
+                displayScore.innerHTML= score
+                row.forEach(index => {
+                    squares[index].classList.remove('taken')
+                })
+                const squaresRemoved = squares.splice(i, width)
+            }
+        }
+    }
+
 
 })
