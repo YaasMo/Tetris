@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
         if(e.keyCode === 37) {
             moveLeft()
         } else if (e.keyCode === 38) {
-            //rotate()
+            rotate()
         } else if (e.keyCode === 39) {
-            //moveRight()
+            moveRight()
         } else if (e.keyCode === 40) {
             //moveDown()
         }
@@ -121,6 +121,31 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
             currentPos += 1
         }
 
+        draw()
+    }
+
+    //move the teromino to the right, accounting for boundaries or conflicting tetrominoes
+    function moveRight() {
+        undraw()
+        const isAtRightEdge = current.some(index => (currentPos + index) % GRID_WIDTH === GRID_WIDTH - 1)
+
+        if(!isAtRightEdge) currentPos += 1
+
+        if(current.some(index => squares[currentPos + index].classList.contains('taken'))) {
+            currentPos -= 1
+        }
+
+        draw()
+    }
+
+    //rotate the tetromino
+    function rotate() {
+        undraw()
+        currentRotation++
+        if(currentRotation == current.length) { //wrap around array of rotations
+            currentRotation = 0
+        }
+        current = allTetrominoes[randomShape][currentRotation]
         draw()
     }
 
