@@ -58,12 +58,76 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     let randomRotation = Math.floor(Math.random() * allTetrominoes[0].length) // unused for now
     let current = allTetrominoes[randomShape][0]
 
-    //draw the first rotation of the first tetrimono
+    //draw the current tetromino (selected above)
     function draw() {
         current.forEach(index => {
             squares[currentPos + index].classList.add('tetromino')
         })
     }
 
-    draw()
+    //undraw the current tetromino
+    function undraw() {
+        current.forEach(index => {
+            squares[currentPos + index].classList.remove('tetromino')
+        })
+    }
+
+    //make the tetromino move down the grid every second
+    timerId = setInterval(moveDown, 1000)
+
+    //assign functions to keyCodes
+    function control(e) {
+        if(e.keyCode === 37) {
+            moveLeft()
+        } else if (e.keyCode === 38) {
+            //rotate()
+        } else if (e.keyCode === 39) {
+            //moveRight()
+        } else if (e.keyCode === 40) {
+            //moveDown()
+        }
+    }
+    document.addEventListener('keyup', control) //attach key listener to HTML doc (index.html)
+
+    //move down function
+    function moveDown() {
+        undraw()
+        currentPos += GRID_WIDTH
+        draw()
+        freeze()
+    }
+
+    //freeze function
+    function freeze() {
+        if(current.some(index => squares[currentPos + index + GRID_WIDTH].classList.contains('taken'))) {
+            current.forEach(index => squares[currentPos + index].classList.add('taken'))
+            
+            //let a new tetromino fall from the top of the grid
+            random = Math.floor(Math.random() * allTetrominoes.length)
+            current = allTetrominoes[random][currentRotation]
+            currentPos = 4
+            draw()
+        }
+    }
+
+    //move the teromino to the left, accounting for boundaries or conflicting tetrominoes
+    function moveLeft() {
+        undraw()
+        const isAtLeftEdge = current.some(index => (currentPos + index) % GRID_WIDTH === 0)
+
+        if(!isAtLeftEdge) currentPos -= 1
+
+        if(current.some(index => squares[currentPos + index].classList.contains('taken'))) {
+            currentPos += 1
+        }
+
+        draw()
+    }
+
+
+
+
+
+
+
 })
