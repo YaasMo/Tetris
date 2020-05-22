@@ -113,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
             draw()
             displayUpcoming()
             addScore()
+            gameOver()
         }
     }
 
@@ -212,7 +213,13 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
         }
     }
 
-    
+    //end game when no more space for new tetremino
+    function gameOver() {
+        if(current.some(index => squares[currentPos + index].classList.contains('taken'))) {
+            displayScore.innerHTML = 'end'
+            clearInterval(timerId)
+        }
+    }
 
 
 })
