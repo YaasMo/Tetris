@@ -10,6 +10,14 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     let score = 0
     let timerId
 
+    const colors = [
+        'orange',
+        'red',
+        'purple',
+        'green',
+        'blue'
+    ]
+
     //defining the tetriminoes
     const lTetromino = [ 
         //defining each rotation of the l shaped tetromino
@@ -65,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     function draw() {
         current.forEach(index => {
             squares[currentPos + index].classList.add('tetromino')
+            squares[currentPos + index].style.backgroundColor = colors[randomShape]
         })
     }
 
@@ -72,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     function undraw() {
         current.forEach(index => {
             squares[currentPos + index].classList.remove('tetromino')
+            squares[currentPos + index].style.backgroundColor = ''
         })
     }
 
@@ -175,9 +185,12 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
         //remove any possible existing tetromino from side grid
         displaySquares.forEach(square => {
             square.classList.remove('tetromino')
+            square.style.backgroundColor = ''
+
         })
         upcomingTetreminoes[nextRandom].forEach(index => {
             displaySquares[displayIndex + index].classList.add('tetromino')
+            displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
         })
     }
 
@@ -205,6 +218,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
                 row.forEach(index => {
                     squares[index].classList.remove('taken')
                     squares[index].classList.remove('tetromino')
+                    squares[index].style.backgroundColor = ''
                 })
                 const squaresRemoved = squares.splice(i, GRID_WIDTH)
                 squares = squaresRemoved.concat(squares)
@@ -220,6 +234,5 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
             clearInterval(timerId)
         }
     }
-
 
 })
