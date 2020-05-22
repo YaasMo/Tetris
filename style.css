@@ -2,11 +2,47 @@ body {
     background-color: lightskyblue;
     font-family: monospace;
     text-align: center;
+    text-shadow: -1px -1px 0 #fff;
+    border-radius: 5px;
+}
+
+#welcome {
+    margin: 0px;
+    padding:0px;
+}
+
+#name {
+    margin: 0px;
+    padding:0px;
 }
 
 button {
+    /* border-radius: 5px;
+    margin-bottom: 20px; */
+    /* position: relative; */
+    height: 20px;
+    text-align: center;
+    color: #000;
+    letter-spacing: 1px;
+    font-size: 10px;
+    /* display: inline-block; */
+    margin-bottom: 25px;
+    text-shadow: -1px -1px 0 #fff;
+    background: #d25068;
+    border: 1px solid #d25068;
+    width: 7rem;
+    background-image: linear-gradient(to bottom, #f66c7b, #d25068);
     border-radius: 5px;
-    margin-bottom: 20px;
+}
+
+.game-panel {
+    /* background-color: deepskyblue; */
+    background-color: springgreen;
+    padding: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 5px solid black;
+    border-radius: 5px;
 }
 
 .container {
