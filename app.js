@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     function addScore() {
         for (let i = 0; i < 199; i += GRID_WIDTH) {
             const row = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9]
-
+            
             if(row.every(index => squares[index].classList.contains('taken'))) {
                 score += 10
                 displayScore.innerHTML= score
