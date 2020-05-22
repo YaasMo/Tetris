@@ -12,12 +12,7 @@ a {
     text-decoration: none;
 }
 
-#welcome {
-    margin: 0px;
-    padding:0px;
-}
-
-#name {
+#heading {
     margin: 0px;
     padding:0px;
 }
