@@ -58,14 +58,13 @@ button {
     display: flex;
     flex-wrap: wrap;
     background-color: yellow;
-    border: 5px solid black;
+    border: 5px solid white;
     border-radius: 5px;
 }
 
 .grid div {
     height: 20px;
     width: 20px;
-    border: black;
     border-radius: 5px;
 }
 
@@ -79,7 +78,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     background-color: coral;
-    border: 5px solid black;
+    border: 5px solid white;
     border-radius: 5px;
     margin-left: 50px;
 
@@ -88,6 +87,5 @@ button {
 .side-grid div {
     height: 20px;
     width: 20px;
-    border: black;
     border-radius: 5px;
 }
