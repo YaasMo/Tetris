@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     //preview upcoming tetromino in the side-gride
     const displaySquares = document.querySelectorAll('.side-grid div')
     const displayWidth = 4
-    let displayIndex = 0
+    const displayIndex = 0
 
     //the Tetreminoes without rotations
     const upcomingTetreminoes = [
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     //end game when no more space for new tetremino
     function gameOver() {
         if(current.some(index => squares[currentPos + index].classList.contains('taken'))) {
-            displayScore.innerHTML = 'end'
+            displayScore.innerHTML = 'GAME OVER'
             clearInterval(timerId)
         }
     }
