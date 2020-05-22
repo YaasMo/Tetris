@@ -14,7 +14,7 @@ a {
 
 #heading {
     margin: 0px;
-    padding:0px;
+    padding: 0px;
 }
 
 button {
@@ -34,14 +34,12 @@ button {
 }
 
 .game-panel {
-    /* background-color: deepskyblue; */
     background-color: springgreen;
     padding: 0px;
     padding-top: 20px;
     padding-bottom: 20px;
     border: 5px solid black;
     border-radius: 5px;
-    
 }
 
 .container {
@@ -79,7 +77,6 @@ button {
     border: 5px solid white;
     border-radius: 5px;
     margin-left: 50px;
-
 }
 
 .side-grid div {
