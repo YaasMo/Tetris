@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
 
     //randomly select a tetromino rotation from all possibilities
     let randomShape = Math.floor(Math.random() * allTetrominoes.length)
-    let randomRotation = Math.floor(Math.random() * allTetrominoes[0].length) // unused for now
     let current = allTetrominoes[randomShape][0]
 
     //draw the current tetromino (selected above)
