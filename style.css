@@ -1,16 +1,18 @@
 body {
     background-color: lightskyblue;
     font-family: monospace;
+    text-align: center;
+}
+
+button {
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .container {
     display: flex;
-}
-
-button {
-    margin-left: 65px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 .grid {
@@ -41,7 +43,6 @@ button {
     flex-wrap: wrap;
     background-color: coral;
     border-radius: 5px;
-    margin-top: 160px;
     margin-left: 50px;
 
 }
