@@ -6,6 +6,12 @@ body {
     border-radius: 5px;
 }
 
+a {
+    color: black;
+    text-shadow: -1px -1px 0 #fff;
+    text-decoration: none;
+}
+
 #welcome {
     margin: 0px;
     padding:0px;
@@ -20,6 +26,7 @@ button {
     /* border-radius: 5px;
     margin-bottom: 20px; */
     /* position: relative; */
+    font-weight: 800;
     height: 20px;
     text-align: center;
     color: #000;
