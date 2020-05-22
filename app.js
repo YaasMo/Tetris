@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
         } else if (e.keyCode === 39) {
             moveRight()
         } else if (e.keyCode === 40) {
-            //moveDown()
+            moveDown()
         }
     }
     document.addEventListener('keyup', control) //attach key listener to HTML doc (index.html)
@@ -106,9 +106,9 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
             current.forEach(index => squares[currentPos + index].classList.add('taken'))
             
             //let a new tetromino fall from the top of the grid
-            random = nextRandom
+            randomShape = nextRandom
             nextRandom = Math.floor(Math.random() * allTetrominoes.length)
-            current = allTetrominoes[random][currentRotation]
+            current = allTetrominoes[randomShape][currentRotation]
             currentPos = 4
             draw()
             displayUpcoming()
@@ -203,11 +203,16 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
                 displayScore.innerHTML= score
                 row.forEach(index => {
                     squares[index].classList.remove('taken')
+                    squares[index].classList.remove('tetromino')
                 })
-                const squaresRemoved = squares.splice(i, width)
+                const squaresRemoved = squares.splice(i, GRID_WIDTH)
+                squares = squaresRemoved.concat(squares)
+                squares.forEach(cell => grid.appendChild(cell))
             }
         }
     }
+
+    
 
 
 })
