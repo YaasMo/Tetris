@@ -48,6 +48,18 @@ button {
     justify-content: center;
 }
 
+#grid-outer {
+    height: 200px;
+    width: 160px;
+    /* display: flex;
+    flex-wrap: wrap; */
+    /* background-color: coral; */
+    text-align: center;
+    /* border: 5px solid white; */
+    border-radius: 5px;
+    margin-right: 50px;
+}
+
 .grid {
     width: 200px;
     height: 400px;
@@ -77,6 +89,24 @@ button {
     border: 5px solid white;
     border-radius: 5px;
     margin-left: 50px;
+}
+
+.instructions {
+    height: 200px;
+    width: 160px;
+    /* display: flex;
+    flex-wrap: wrap; */
+    /* background-color: coral; */
+    text-align: center;
+    border: 5px solid white;
+    border-radius: 5px;
+    margin-right: 50px;
+}
+
+#instruction-title {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
 }
 
 .side-grid div {
