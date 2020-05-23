@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     const GRID_WIDTH = 10
     let nextRandom = 0
     let score = 0
+    let isGameOver = false
     let timerId
 
     const colors = [
@@ -89,14 +90,16 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
 
     //assign functions to keyCodes
     function control(e) {
-        if(e.keyCode === 37) {
-            moveLeft()
-        } else if (e.keyCode === 38) {
-            rotate()
-        } else if (e.keyCode === 39) {
-            moveRight()
-        } else if (e.keyCode === 40) {
-            moveDown()
+        if (!isGameOver) {
+            if(e.keyCode === 37) {
+                moveLeft()
+            } else if (e.keyCode === 38) {
+                rotate()
+            } else if (e.keyCode === 39) {
+                moveRight()
+            } else if (e.keyCode === 40) {
+                moveDown()
+            }
         }
     }
     document.addEventListener('keyup', control) //attach key listener to HTML doc (index.html)
@@ -234,6 +237,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     function gameOver() {
         if(current.some(index => squares[currentPos + index].classList.contains('taken'))) {
             displayScore.innerHTML = 'GAME OVER'
+            isGameOver = true
             clearInterval(timerId)
         }
     }
