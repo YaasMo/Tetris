@@ -35,8 +35,8 @@ button {
 
 .game-panel {
     background-color: springgreen;
-    /* width: min-content; */
-    width: auto;
+    width: min-content;
+    /* width: auto; */
     margin: auto;
     margin-top: 0px;
     padding: 100px;
