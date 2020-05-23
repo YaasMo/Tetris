@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     const GRID_WIDTH = 10
     let nextRandom = 0
     let score = 0
-    let isGameOver = false
+    let isGameOn = false
     let timerId
 
     const colors = [
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
 
     //assign functions to keyCodes
     function control(e) {
-        if (!isGameOver) {
+        if (isGameOn) {
             if(e.keyCode === 37) {
                 moveLeft()
             } else if (e.keyCode === 38) {
@@ -196,8 +196,9 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
         })
     }
 
-    //add functionality to the button
+    //add functionality to the Start/Pause button
     startBtn.addEventListener('click', () => {
+        isGameOn = !isGameOn
         if(timerId) { // timerId not null
             clearInterval(timerId)
             timerId = null
@@ -237,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => { //in order for code to be 
     function gameOver() {
         if(current.some(index => squares[currentPos + index].classList.contains('taken'))) {
             displayScore.innerHTML = 'GAME OVER'
-            isGameOver = true
+            isGameOn = false
             clearInterval(timerId)
         }
     }
