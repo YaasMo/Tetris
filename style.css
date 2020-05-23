@@ -42,7 +42,6 @@ button {
     padding-top: 3px;
     padding-bottom: 3px;
     border: 2px solid black;
-    /* border-radius: 5px; */
 }
 
 .container {
@@ -52,8 +51,6 @@ button {
 }
 
 .grid {
-    /* width: 200px;
-    height: 400px; */
     width: 300px;
     height: 600px;
     display: flex;
@@ -64,8 +61,6 @@ button {
 }
 
 .grid div {
-    /* height: 20px;
-    width: 20px; */
     height: 30px;
     width: 30px;
     border-radius: 5px;
@@ -99,7 +94,6 @@ button {
     height: 200px;
     width: 160px;
     text-align: center;
-    /* border: 5px solid white; */
     border-radius: 5px;
     margin-right: 50px;
 }
