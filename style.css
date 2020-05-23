@@ -73,9 +73,6 @@ button {
 .grid-outer {
     height: 200px;
     width: 160px;
-    /* display: flex;
-    flex-wrap: wrap; */
-    /* background-color: coral; */
     text-align: center;
     border-radius: 5px;
     margin-left: 50px;
@@ -96,9 +93,6 @@ button {
 .instructions {
     height: 200px;
     width: 160px;
-    /* display: flex;
-    flex-wrap: wrap; */
-    /* background-color: coral; */
     text-align: center;
     border: 5px solid white;
     border-radius: 5px;
